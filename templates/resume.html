@@ -1,0 +1,72 @@
+<div id="resContainer">
+    <div id="resHeader">
+        <div class="resAvatar">
+            <img src="{{usrAvatar}}" class="usrAvatar">
+            <span><i class="fa fa-link"></i>  <a href="{{usrBlog}}" target="_blank">{{usrBlog}}</a></span><br>
+            <span><i class="fa fa-calendar"></i>  Github member since: {{usrSignDate | date:medium}}</span>
+        </div>
+        
+        <div class="resProfile">
+            <h3>{{usrName}} <br> <span style="font-size:16px; color:crimson;">@{{usrLogin}}</span></h3>
+            
+            <p>{{usrName}} is a Github user with <a href="https://github.com/{{usrLogin}}?tab=repositories">{{totalCount}} </a> public repos. This resume is built automatically from public informations of the Github user, for more informations and full details you can go to users official github profile <a href="https://github.com/{{usrLogin}}" target="_blank">here</a>.</p>
+            <p>
+                <span class="header">Languages: </span>
+                <li ng-repeat="lang in languages | orderBy:'-percentage'">{{lang.language}}: {{lang.percentage}}% </li>
+                <div class="stats">
+                    <div>
+                        <a href="https://github.com/{{usrLogin}}/followers">{{usrFollowers}}</a><br>
+                        <span class="header">Followers</span> 
+                    </div>
+                    <div>
+                        <a href="https://github.com/{{usrLogin}}/following">{{usrFollowing}}</a><br>
+                        <span class="header">Following</span>
+                    </div>
+                </div>
+            </p>
+        </div>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <div id="resBody">
+        <h3>Popular Repositories</h3>
+        <ul>
+            <li ng-repeat="repo in usrRepos | orderBy:'-watchers' | limitTo:5">
+                <div class="listItem">
+                    <div class="listIcons">
+                        <i class="fa fa-star fa-lg"></i>
+                    </div>
+                    <div class="listDetails">
+                        <span style="font-size:15px; font-weight:500">{{repo.name}} 
+                            <a href="{{repo.html_url}}" class="btn btn-danger btn-xs" target="_blank">
+                                <i class="fa fa-external-link"></i> 
+                            </a>
+                        </span> <br>
+                        <span><span class="header">Language:</span> {{repo.language}}</span><br>
+                        <p>
+                            <span class="header">Description:</span>
+                            {{repo.description}}
+                        </p>
+                        
+                        <div class="repoStats">
+                            <div>
+                           <span class="repoStat">{{repo.watchers}}</span><br>
+                           Watchers 
+                        </div>
+                        <div>
+                            <span class="repoStat">{{repo.forks}}</span><br>
+                            Forks
+                        </div>
+                        <div>
+                            <span class="repoStat">{{repo.created_at | date:shortDate}}</span><br>
+                            Created at
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
