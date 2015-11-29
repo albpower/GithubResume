@@ -1,4 +1,4 @@
-var app = angular.module('GResumeApp',['ngRoute']);
+var app = angular.module('GResumeApp',['ngRoute','angularUtils.directives.dirPagination']);
 
 app.config(['$routeProvider',function ($routeProvider){
     $routeProvider.
@@ -43,6 +43,7 @@ app.controller('ResumeCtrl',function($scope,$routeParams,$http){
     
     $http.get('https://api.github.com/users/'+ $scope.guser + '/repos').then(function (resp){
         $scope.usrRepos = resp.data;
+        
         //add languages from repos to single array
         for (var i=0; i<$scope.usrRepos.length; i++){
             langArray.push($scope.usrRepos[i].language);
@@ -73,6 +74,7 @@ app.controller('ResumeCtrl',function($scope,$routeParams,$http){
 //                langArray.push({"language": $scope.usrRepos[i].language,"count":1, "percent":100});
 //            }
         }
+        
         //count similar languages and add results to array
         for (var j=0; j<langArray.length; j++){
                 if (langArray[j] != current){

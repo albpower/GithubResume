@@ -32,7 +32,7 @@
     <div id="resBody">
         <h3>Popular Repositories</h3>
         <ul>
-            <li ng-repeat="repo in usrRepos | orderBy:'-watchers' | limitTo:5">
+            <li dir-paginate="repo in usrRepos | orderBy:'-watchers' | itemsPerPage:5">
                 <div class="listItem">
                     <div class="listIcons">
                         <i class="fa fa-star fa-lg"></i>
@@ -68,5 +68,9 @@
                 </div>
             </li>
         </ul>
+        <div style="text-align:center">
+            <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true"></dir-pagination-controls>
+        </div>
+        
     </div>
 </div>

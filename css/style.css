@@ -51,11 +51,11 @@ main{
 #resHeader{display:flex; align-items: flex-start;}
 .resAvatar{
     order:1;
-    flex-basis: 250px;
+    flex-basis: 350px;
     flex-shrink: 0;
 }
 .usrAvatar{ 
-    width: 240px;
+    width: 280px;
     border: solid 5px #333;
     margin: 5px auto;
     display: block;
@@ -133,3 +133,15 @@ ul { list-style-type: none; }
     margin:5px 0;
 }
 .repoStat {color:crimson; font-size: 15px; font-weight: 400}
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+    background-color:crimson !important;
+    border-color:crimson !important;
+    color:#fff !important;
+}
+
+.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus{
+    color:crimson !important;
+}
+
+.pagination>li>a, .pagination>li>a, .pagination>li>span{color:#333 !important;}
